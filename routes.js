@@ -28,19 +28,6 @@ router.route('/sessions')
 
 router.route('/sessions')
     .post(function(req, res) {
-//        var message = new Message();
-//        // Set text and user values from the request
-//	message.host = req.body.host;
-//	message.lastAccess = req.body.lastAccess;
-//    message.totalSeconds = req.body.totalSeconds;
-//    message.urls = req.body.urls;
-// 
-//        // Save message and check for errors
-//        message.save(function(err) {
-//            if (err)
-//                res.send(err);
-//            res.json({ message: 'Message created successfully!' });
-//        });
     Message.create(req.body.urls, function(err){
     if(err)
       res.send(err);
@@ -48,7 +35,27 @@ router.route('/sessions')
     else
       res.json({ message: 'Entries created successfully!' });
   });
+});
+
+router.route('/bookmarks')
+    .get(function(req, res) {
+        Message.find(function(err, messages) {
+            if (err)
+                res.send(err);
+            res.json(messages);
+        });
     });
+
+router.route('/bookmarks')
+    .post(function(req, res) {
+    Message.create(req.body.bkmarks, function(err){
+    if(err)
+      res.send(err);
+
+    else
+      res.json({ message: 'Entries created successfully!' });
+  });
+});
 
 module.exports = router;
  
