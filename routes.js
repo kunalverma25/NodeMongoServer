@@ -55,7 +55,7 @@ router.route('/sessions')
 //    else
 //      res.json({ message: 'Entries created successfully!' });
 //  });
-});
+//});
 
 module.exports = router;
  
