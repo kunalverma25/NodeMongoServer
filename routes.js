@@ -37,24 +37,24 @@ router.route('/sessions')
   });
 });
 
-router.route('/bookmarks')
-    .get(function(req, res) {
-        Message.find(function(err, messages) {
-            if (err)
-                res.send(err);
-            res.json(messages);
-        });
-    });
-
-router.route('/bookmarks')
-    .post(function(req, res) {
-    Message.create(req.body.bkmarks, function(err){
-    if(err)
-      res.send(err);
-
-    else
-      res.json({ message: 'Entries created successfully!' });
-  });
+//router.route('/bookmarks')
+//    .get(function(req, res) {
+//        Message.find(function(err, messages) {
+//            if (err)
+//                res.send(err);
+//            res.json(messages);
+//        });
+//    });
+//
+//router.route('/bookmarks')
+//    .post(function(req, res) {
+//    Message.create(req.body.bkmarks, function(err){
+//    if(err)
+//      res.send(err);
+//
+//    else
+//      res.json({ message: 'Entries created successfully!' });
+//  });
 });
 
 module.exports = router;
